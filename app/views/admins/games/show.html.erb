@@ -1,0 +1,11 @@
+<h4>タイトル名</h4>
+ <p><%= @game.title %></p>
+ 
+<h2>概要</h2>
+ <p><%= @game.body %></p>
+ 
+<h2></h2>
+ <p><%= @game.tag %></p>
+ 
+ <%= link_to "削除", admins_games_path(@game.id), method: :delete, "data-confirm" =>"本当に削除しますか？" %>
+ <>
