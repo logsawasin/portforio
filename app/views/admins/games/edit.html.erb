@@ -1,0 +1,11 @@
+<h3>ゲーム編集画面</h3>
+   <%= form_with model: @game, url:admins_game_path, method: :patch do |f| %>
+     <table>
+         <tr><th>ゲームイラスト画像</th><td></td></tr>
+         <tr><th><ゲームタイトル><td><%= f.text_field :name %></td></th></tr>
+         <tr><th>概要</th><td><%= f.text_field :body %></td></tr>
+         <tr>タグ<th><td><%= f.text_field :tag %></td></th></tr>
+         <br><%= f.submit "保存" %>
+      </table>
+         
+   <% end %>

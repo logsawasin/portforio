@@ -8,6 +8,7 @@ class Admins::GamesController < ApplicationController
     end
     
     def edit
+        @game = Game.find(params[:id])
     end
     
     def new
@@ -26,7 +27,7 @@ class Admins::GamesController < ApplicationController
     def destroy
         @game = Game.find(params[:id])
         @game.destroy
-        redirect_to '/admins/games'
+        redirect_to admins_games_path, notice: "ゲームを削除"
     end
     
     private

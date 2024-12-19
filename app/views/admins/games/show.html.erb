@@ -7,5 +7,5 @@
 <h2></h2>
  <p><%= @game.tag %></p>
  
- <%= link_to "削除", admins_games_path(@game.id), method: :delete, "data-confirm" =>"本当に削除しますか？" %>
- <>
+ <%= link_to "削除", admins_game_path(@game), method: :delete, "data-confirm" =>"本当に削除しますか？" %>
+ <%= link_to "編集", admins_game_path(@game) %>

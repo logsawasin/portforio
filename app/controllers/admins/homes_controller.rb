@@ -5,4 +5,9 @@ class Admins::HomesController < ApplicationController
         @game = Game.all
      end
      
+     private
+     
+     def game_params
+          params.require(:game).permit(:title, :body, :tag)
+     end
 end
