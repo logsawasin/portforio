@@ -1,0 +1,8 @@
+<h4>ユーザー一覧（管理者）</h4>
+<% @user.each do |user| %>
+   <table>
+       <tr>
+           <td><%= link_to user.name, admins_customer_path(user.id) %></td>
+       </tr>
+   </table>
+<% end %>

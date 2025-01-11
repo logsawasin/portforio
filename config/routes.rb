@@ -17,14 +17,15 @@ Rails.application.routes.draw do
   scope module: :users do
     resources :games, only: [:index, :show, :edit, :create]
     resources :comments, only: [:index, :show, :create]
-    resources :customers, only: [:show, :edit, :update]
-    resources :strategy, only: [:create, :show, :edit, :update]
+    resources :user, only: [:show, :edit, :update]
+    resources :strategy, only: [:index, :create, :show, :edit, :update]
   end
 
   namespace :admins do
     get 'top' => 'homes#top', as: 'top'
     resources :games, only: [:index, :show, :edit, :update, :create, :new, :destroy]
-    resources :customers, only: [:index, :show, :edit, :update]
-    resources :comments, only: [:index, :show]
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :comments, only: [:index, :show, :destroy, :create]
+    resources :strategies, only: [:index, :show, :edit, :update, :create, :new, :destroy]
   end
 end

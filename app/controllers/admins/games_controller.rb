@@ -24,6 +24,13 @@ class Admins::GamesController < ApplicationController
         end
     end
     
+    def update
+        @game = Game.find(params[:id])
+        @game.update(game_params)
+        flash[:notice] = "保存しました！"
+        redirect_to admins_game_path(@game.id)
+    end
+    
     def destroy
         @game = Game.find(params[:id])
         @game.destroy

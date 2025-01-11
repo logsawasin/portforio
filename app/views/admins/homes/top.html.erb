@@ -1,22 +1,10 @@
-<%= form_with model: @game, url: admins_games_path do |f|%>
-  <h4>ゲーム名</h4>
-  <%= f.text_field :title %>
-  
-  <h4>概要</h4>
-  <%= f.text_field :body %>
-  
-  <h4>カテゴリー</h4>
-  <%= f.text_field :tag %>
-  
-  <br>
-  <%= f.submit '投稿' %>
-<% end %>
+<h4>トップページ（管理者）</h4>
+<%= link_to "新規ゲーム作成", new_admins_game_path %></br >
 
 <% @game.each do |game| %>
    <table>
         <tr>
-           <td><%= game.title %></td>
-           <td><%= link_to "詳細", admins_game_path(game.id) %></td>
+           <td><%= link_to game.title, admins_game_path(game.id) %></td>
         </tr>
     </table>
 <% end %>

@@ -4,8 +4,13 @@
 <h2>概要</h2>
  <p><%= @game.body %></p>
  
-<h2></h2>
+<h2>ジャンル</h2>
  <p><%= @game.tag %></p>
  
- <%= link_to "削除", admins_game_path(@game), method: :delete, "data-confirm" =>"本当に削除しますか？" %>
- <%= link_to "編集", admins_game_path(@game) %>
+ <h4><%= link_to "攻略情報作成", new_admins_strategy_path(game_id: @game.id) %></h4>
+ <% @game.strategies.each do |strategy| %>
+   <p><%= link_to strategy.title, admins_strategy_path(strategy) %></p>
+ <% end %>
+ 
+ <%= link_to "削除", admins_game_path(@game.id), method: :delete, "data-confirm" =>"本当に削除しますか？" %>
+ <%= link_to "編集", edit_admins_game_path(@game.id) %>

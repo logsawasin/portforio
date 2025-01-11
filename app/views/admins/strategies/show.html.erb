@@ -1,0 +1,15 @@
+<h2>タイトル</h2>
+  <p><%= @strategy.title %></p>
+  
+<h2>本文</h2>
+  <p><%= @strategy.body %></p>
+
+<%= form_with model: @comment, url: admins_comments_path do |f| %>
+  <table>
+    <tr><th>コメント</th><td><%= f.text_field :comment %></td></tr>
+    <tr><td><%= f.submit '保存' %></td></tr>
+  </table>
+<% end %>
+<%= link_to "編集", edit_admins_strategy_path(@strategy.id) %>  
+<%= link_to "削除", admins_strategy_path(@strategy.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
+<%= link_to "戻る", admins_game_path(@game.id) %>
