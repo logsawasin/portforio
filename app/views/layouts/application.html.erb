@@ -30,7 +30,7 @@
                         コメント一覧
                     <% end %>
                 </li>
-                    <%= link_to customer_path(current_user.id), class: 'nav-link text-light' do %>
+                    <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
                      <i class="fa-solid fa-book-open"></i>
                      ユーザー
                     <% end %>
@@ -48,7 +48,7 @@
                     <% end %>
                 </li>
                 <li>
-                    <%= link_to admins_customers_path,  class:'nav-link text-light' do %>
+                    <%= link_to admins_users_path,  class:'nav-link text-light' do %>
                         <i class="fa-solid fa-sign-out-alt"></i>
                         ユーザー一覧
                     <% end %>

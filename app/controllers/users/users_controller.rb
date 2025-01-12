@@ -1,4 +1,4 @@
-class Admins::UserrsController < ApplicationController
+class Users::UsersController < ApplicationController
     def index
         @user = User.all
     end
@@ -14,7 +14,7 @@ class Admins::UserrsController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(user_params)
-        
+        redirect_to user_path(params[:id])
     end
     
     private
@@ -22,5 +22,4 @@ class Admins::UserrsController < ApplicationController
     def user_params
         params.require(:user).permit(:name, :image)
     end
-    
 end

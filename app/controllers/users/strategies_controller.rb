@@ -1,4 +1,4 @@
-class Admins::StrategiesController < ApplicationController
+class Users::StrategiesController < ApplicationController
     def show
         @strategy = Strategy.find(params[:id])
         @game = @strategy.game
@@ -17,7 +17,7 @@ class Admins::StrategiesController < ApplicationController
     def create
       @strategy = Strategy.new(strategy_params)
       if @strategy.save
-        redirect_to admins_strategy_path(@strategy.id), notice: 'Strategy was successfully created.'
+        redirect_to users_strategy_path(@strategy.id), notice: 'Strategy was successfully created.'
       else
         render :new, alert: 'Failed to create strategy.'
       end
@@ -26,7 +26,7 @@ class Admins::StrategiesController < ApplicationController
     def destroy
         @strategy = Strategy.find(params[:id])
         @strategy.destroy
-        redirect_to admins_game_path, notice: "攻略情報を削除"
+        redirect_to users_game_path, notice: "攻略情報を削除"
     end
 
     

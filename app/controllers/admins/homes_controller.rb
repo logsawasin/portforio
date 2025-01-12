@@ -8,6 +8,6 @@ class Admins::HomesController < ApplicationController
      private
      
      def game_params
-          params.require(:game).permit(:title, :body, :tag)
+          params.require(:game).permit(:title, :body, :tag, :image)
      end
 end

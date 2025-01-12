@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   scope module: :users do
     resources :games, only: [:index, :show, :edit, :create]
     resources :comments, only: [:index, :show, :create]
-    resources :user, only: [:show, :edit, :update]
+    resources :users, only: [:show, :edit, :update]
     resources :strategy, only: [:index, :create, :show, :edit, :update]
   end
 
