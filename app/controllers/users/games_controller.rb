@@ -16,7 +16,7 @@ class Users::GamesController < ApplicationController
         @game = Game.find(params[:id])
         @game.update(game_params)
         flash[:notice] = "保存しました！"
-        redirect_to users_game_path(@game.id)
+        redirect_to game_path(@game.id)
     end
     
     private

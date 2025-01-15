@@ -1,0 +1,14 @@
+コメント一覧（ユーザー）
+<table>
+  <tbody>
+  <% @comment.each do |comment| %>
+  <% if @comment.user_id == current_user.id %>
+    <tr>
+      <td><%= link_to comment.comment, comment_path(comment.id) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+      
+  <% end %>
+</table>
+    

@@ -9,9 +9,9 @@ class Users::CommentsController < ApplicationController
     
     def create
         @comment = Comment.new(comment_params)
-        @comment.customer_id = current_customer.id
+        @comment.user = current_user
         if @comment.save
-            redirect_to users_comment_path(@comment.id), notice: 'コメントを作成しました！'
+            redirect_to comment_path(@comment.id), notice: 'コメントを作成しました！'
         else
             render :new, alert: 'コメントに失敗しました'
         end
@@ -21,7 +21,7 @@ class Users::CommentsController < ApplicationController
         @strategy = @comment.strategy
         @comment = Comment.find(params[:id])
         @comment = Comment.destroy
-        redirect_to users_strategy_path(@strategy.id)
+        redirect_to strategy_path(@strategy.id)
     end
     
     private

@@ -16,24 +16,25 @@ class Users::StrategiesController < ApplicationController
     
     def create
       @strategy = Strategy.new(strategy_params)
+      @strategy.user_id = current_user.id
       if @strategy.save
-        redirect_to users_strategy_path(@strategy.id), notice: 'Strategy was successfully created.'
+        redirect_to strategy_path(@strategy.id), notice: 'Strategy was successfully created.'
       else
-        render :new, alert: 'Failed to create strategy.'
+        redirect_to strategy_,path(@strategy.id) alert: 'Failed to create strategy.'
       end
     end
     
     def destroy
         @strategy = Strategy.find(params[:id])
         @strategy.destroy
-        redirect_to users_game_path, notice: "攻略情報を削除"
+        redirect_to game_path, notice: "攻略情報を削除"
     end
 
     
     def update
         @strategy = Strategy.find(params[:id])
         @strategy.update(strategy_params)
-        redirect_to admins_strategy_path(@strategy.id)
+        redirect_to strategy_path(@strategy.id)
     end
     
     private

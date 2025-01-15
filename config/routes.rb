@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   get 'admin/comments' => 'admins/comments#index'
 
   scope module: :users do
-    resources :games, only: [:index, :show, :edit, :create]
-    resources :comments, only: [:index, :show, :create]
+    resources :games, only: [:index, :show, :edit, :create, :update]
+    resources :comments, only: [:index, :show, :create, :destroy]
     resources :users, only: [:show, :edit, :update]
-    resources :strategy, only: [:index, :create, :show, :edit, :update]
+    resources :strategies, only: [:index, :create, :show, :edit, :update, :new, :destroy]
   end
 
   namespace :admins do
