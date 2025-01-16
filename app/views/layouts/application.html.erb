@@ -24,16 +24,18 @@
                         ホーム
                     <% end %>
                 </li>
+                <!--<li>-->
+                    <%#= link_to comments_path, class:'nav-link text-light' do %>
+                <!--        <i class="fa-solid fa-users"></i>-->
+                <!--        コメント一覧-->
+                <!--    <%# end %>-->
+                <!--</li>-->
                 <li>
-                    <%= link_to comments_path, class:'nav-link text-light' do %>
-                        <i class="fa-solid fa-users"></i>
-                        コメント一覧
-                    <% end %>
-                </li>
                     <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
                      <i class="fa-solid fa-book-open"></i>
                      ユーザー
                     <% end %>
+                </li>
                 <li>
                     <%= link_to destroy_user_session_path,method: :delete,  class:'nav-link text-light' do %>
                         <i class="fa-solid fa-sign-out-alt"></i>
@@ -98,6 +100,18 @@
   </header>
 
 <main>
+    <% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
   <%= yield %>
 </main>
 <footer>

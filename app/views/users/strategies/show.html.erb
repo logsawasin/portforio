@@ -4,15 +4,37 @@
 <h2>本文</h2>
   <p><%= @strategy.body %></p>
 
-<%= form_with model: @comment, url: comments_path do |f| %>
   <table>
-    <tr><th>コメント</th><td><%= f.text_field :comment %></td></tr>
-    <tr><td><%= f.submit '保存' %></td></tr>
-  </table>
-<% end %>
-
-<% if @strategy.user_id == current_user.id  %>
+    <tbody>
+      <%= form_with model: @comment, url: strategy_comments_path(@strategy.id) do |f| %>
+        <tr><th>コメント</th><td><%= f.text_field :comment %></td></tr>
+        <tr><td><%= f.submit '保存' %></td></tr>
+      <% end %>
+      <% if @strategy.user_id == current_user.id  %>
   <%= link_to "編集", edit_strategy_path(@strategy.id) %>
   <%= link_to "削除", strategy_path(@strategy.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
 <% end %>
 <%= link_to "戻る", game_path(@game.id) %>
+
+    </tbody>
+    <footer>
+      <footer>
+  <% if @strategy.comments.present? %> 
+    <% @strategy.comments.each do |comment| %>
+      <% if comment.id.present? %>
+        <tr>
+          <th><%= link_to comment.comment, strategy_comment_path(@strategy.id, comment.id) %></th>
+        </tr>
+      <% end %>
+    <% end %>
+  <% else %>
+    <tr>
+      <th>コメントが存在しません</th>
+    </tr>
+  <% end %>
+</footer>
+
+
+    </footer>
+  </table>
+

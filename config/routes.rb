@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   scope module: :users do
     resources :games, only: [:index, :show, :edit, :create, :update]
-    resources :comments, only: [:index, :show, :create, :destroy]
     resources :users, only: [:show, :edit, :update]
-    resources :strategies, only: [:index, :create, :show, :edit, :update, :new, :destroy]
+      resources :strategies, only: [:index, :create, :show, :edit, :update, :new, :destroy] do 
+        resources :comments, only: [:index, :show, :create, :destroy]
+      end
   end
 
   namespace :admins do

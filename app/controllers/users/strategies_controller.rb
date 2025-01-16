@@ -17,11 +17,8 @@ class Users::StrategiesController < ApplicationController
     def create
       @strategy = Strategy.new(strategy_params)
       @strategy.user_id = current_user.id
-      if @strategy.save
-        redirect_to strategy_path(@strategy.id), notice: 'Strategy was successfully created.'
-      else
-        redirect_to strategy_,path(@strategy.id) alert: 'Failed to create strategy.'
-      end
+      @strategy.save
+      redirect_to strategy_path(@strategy.id), notice: 'Strategy was successfully created.'
     end
     
     def destroy

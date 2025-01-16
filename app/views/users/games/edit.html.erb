@@ -1,5 +1,5 @@
 <h3>ゲーム編集画面</h3>
-   <%= form_with model: @game, url:games_path(@game.id), method: :patch do |f| %>
+   <%= form_with model: @game, url:game_path(@game), method: :patch do |f| %>
      <table>
          <tr><th>ゲームイラスト画像</th><td><%= f.file_field :image, accept: "image/*" %></td></tr>
          <tr><th>ゲームタイトル<td><%= f.text_field :title %></td></th></tr>

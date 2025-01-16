@@ -1,6 +1,10 @@
 class Users::CommentsController < ApplicationController
     def index
-        @comment = Comment.all
+        @comments = Comment.all
+    end
+    
+    def new
+      @comment = Comment.new
     end
     
     def show
@@ -8,12 +12,14 @@ class Users::CommentsController < ApplicationController
     end
     
     def create
-        @comment = Comment.new(comment_params)
+        @strategy = Strategy.find(params[:strategy_id])
+        @comment = @strategy.comments.new(comment_params)
         @comment.user = current_user
         if @comment.save
-            redirect_to comment_path(@comment.id), notice: 'コメントを作成しました！'
+            redirect_to strategy_path(@strategy.id), notice: 'コメントを作成しました！'
         else
-            render :new, alert: 'コメントに失敗しました'
+           flash.now[:alert] = 'コメントに失敗しました'
+           render :new
         end
     end
     
@@ -27,6 +33,6 @@ class Users::CommentsController < ApplicationController
     private
     
     def comment_params
-        params.require(:comment).permit(:comment)
+        params.require(:comment).permit(:comment, :user_id, :game_id)
     end
 end
