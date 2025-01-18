@@ -1,11 +1,27 @@
-<h4>タイトル名</h4>
- <p><%= @game.title %></p>
- 
-<h2>概要</h2>
- <p><%= @game.body %></p>
- 
-<h2>ジャンル</h2>
- <p><%= @game.tag %></p>
+<div>
+  <% if @game.image.attached? %>
+    <%= image_tag @game.image, size: "450x150" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "450x150" %>
+  <% end %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル名</th>
+      <td><%= @game.title %></td>
+    </tr>
+    <tr>
+      <th>概要</th>
+      <td><%= @game.body %></td>
+    </tr>
+    <tr>
+      <th>ジャンル</th>
+      <td><%= @game.tag %></td>
+    </tr>
+  </thead>
+</table>
  
  <h4><%= link_to "攻略情報作成", new_admins_strategy_path(game_id: @game.id) %></h4>
  <% @game.strategies.each do |strategy| %>

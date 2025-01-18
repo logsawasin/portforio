@@ -24,9 +24,9 @@ class Users::CommentsController < ApplicationController
     end
     
     def destroy
-        @strategy = @comment.strategy
         @comment = Comment.find(params[:id])
-        @comment = Comment.destroy
+        @strategy = @comment.strategy
+        @comment.destroy
         redirect_to strategy_path(@strategy.id)
     end
     

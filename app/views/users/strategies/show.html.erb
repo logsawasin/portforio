@@ -11,11 +11,11 @@
         <tr><td><%= f.submit '保存' %></td></tr>
       <% end %>
       <% if @strategy.user_id == current_user.id  %>
-  <%= link_to "編集", edit_strategy_path(@strategy.id) %>
-  <%= link_to "削除", strategy_path(@strategy.id), method: :delete, "data-confirm" => "本当に削除しますか？"  %>
-<% end %>
-<%= link_to "戻る", game_path(@game.id) %>
+        <td><%= link_to "編集", edit_strategy_path(@strategy.id), class: "btn-primary" %></td>
+        <td><%= link_to "削除", strategy_path(@strategy.id), method: :delete, class: "btn-danger", "data-confirm" => "本当に削除しますか？"  %></td>
+        <td><%= link_to "戻る", game_path(@game.id) %></td>
 
+      <% end %>
     </tbody>
     <footer>
       <footer>

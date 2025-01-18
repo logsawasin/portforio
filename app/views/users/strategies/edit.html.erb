@@ -1,8 +1,18 @@
-<h3>攻略情報編集画面（ユーザー）</h3>
-    <%= form_with model: @strategy, url:strategy_path, method: :patch do |f| %>
-        <table>
-            <tr><th>タイトル名</th><td><%= f.text_field :title %></td></tr>
-            <tr><th>本文</th><td><%= f.text_field :body %></td></tr>
-            <tr><th><%= f.submit "保存" %></th></tr>
-        </table>
-    <% end %>
+<div class="strategy-edit-container">
+  <h3 class="title">攻略情報編集画面（ユーザー）</h3>
+  
+  <%= form_with model: @strategy, url: strategy_path, method: :patch, class: "strategy-form" do |f| %>
+    <div class="strategy-form-group">
+      <label for="title">タイトル名</label>
+      <%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %>
+    </div>
+    <div class="strategy-form-group">
+      <label for="body">本文</label>
+      <%= f.text_area :body, class: "form-control", rows: 5, placeholder: "本文を入力してください" %>
+    </div>
+    <div class="form-actions">
+      <%= f.submit "保存", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+</div>
