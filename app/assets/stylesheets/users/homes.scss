@@ -1,3 +1,54 @@
-// Place all the styles related to the users/homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* タイトル（「スマホゲーム 攻略wiki」） */
+
+
+
+
+.game-list-title {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+/* ゲーム一覧をグリッドレイアウトに */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); /* 90px以上で自動調整 */
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 各ゲームアイテム */
+.game-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column; /* 画像とテキストを縦並びに */
+  align-items: center;
+}
+
+/* 画像のスタイル（小さくする） */
+.game-image {
+  width: 70px; /* 画像サイズを小さく */
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover; /* 画像が歪まないように */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ゲームタイトル */
+.game-title {
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* 画像＋タイトル全体をリンクに */
+.game-link {
+  text-decoration: none;
+  color: black;
+}
+.game-link:hover .game-title {
+  color: #007bff; /* ホバー時に青色に */
+}

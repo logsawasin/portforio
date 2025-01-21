@@ -1,40 +1,51 @@
-<h2>タイトル</h2>
+<div class="strategy-container">
+  <h2>タイトル</h2>
   <p><%= @strategy.title %></p>
-  
-<h2>本文</h2>
+
+  <h2>本文</h2>
   <p><%= @strategy.body %></p>
 
-  <table>
-    <tbody>
-      <%= form_with model: @comment, url: strategy_comments_path(@strategy.id) do |f| %>
-        <tr><th>コメント</th><td><%= f.text_field :comment %></td></tr>
-        <tr><td><%= f.submit '保存' %></td></tr>
-      <% end %>
-      <% if @strategy.user_id == current_user.id  %>
-        <td><%= link_to "編集", edit_strategy_path(@strategy.id), class: "btn-primary" %></td>
-        <td><%= link_to "削除", strategy_path(@strategy.id), method: :delete, class: "btn-danger", "data-confirm" => "本当に削除しますか？"  %></td>
-        <td><%= link_to "戻る", game_path(@game.id) %></td>
-
-      <% end %>
-    </tbody>
-    <footer>
-      <footer>
-  <% if @strategy.comments.present? %> 
-    <% @strategy.comments.each do |comment| %>
-      <% if comment.id.present? %>
+  <!-- コメントフォーム -->
+<div class="comment-form">
+  <div class="comment-form-inner">
+    <%= form_with model: @comment, url: strategy_comments_path(@strategy.id) do |f| %>
+      <table>
         <tr>
-          <th><%= link_to comment.comment, strategy_comment_path(@strategy.id, comment.id) %></th>
+          <th>コメント</th>
+          <th><%= f.text_area :comment, class: "form-control comment-box", rows: 3 %></th>
         </tr>
-      <% end %>
+        <tr>
+          <td colspan="2"><%= f.submit '保存' %></td>
+        </tr>
+      </table>
     <% end %>
-  <% else %>
-    <tr>
-      <th>コメントが存在しません</th>
-    </tr>
+</div>
+
+
+  <!-- 編集・削除・戻るボタン -->
+  <% if @strategy.user_id == current_user.id %>
+    <div class="action-buttons">
+      <%= link_to "編集", edit_strategy_path(@strategy.id), class: "btn-primary" %>
+      <%= link_to "削除", strategy_path(@strategy.id), method: :delete, class: "btn-danger", "data-confirm" => "本当に削除しますか？" %>
+      <%= link_to "戻る", game_path(@game.id), class: "btn-secondary" %>
+    </div>
   <% end %>
-</footer>
 
-
-    </footer>
-  </table>
-
+  <!-- コメントリスト -->
+  <div class="comment-list">
+    <% if @strategy.comments.present? %>
+      <table>
+        <% @strategy.comments.each_with_index do |comment, index| %>
+          <% if comment.id.present? %>
+            <tr>
+              <th><%= index + 1 %>.</th>
+              <th><%= link_to comment.comment, strategy_comment_path(@strategy.id, comment.id) %></th>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    <% else %>
+      <p>コメントが存在しません</p>
+    <% end %>
+  </div>
+</div>

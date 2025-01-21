@@ -1,10 +1,20 @@
-<h4>攻略情報編集画面(ユーザー)</h4>
-<%= form_with model:  @strategy do |f| %>
-  <%= render 'layouts/error_messages', model: f.object %>
-  <%= f.hidden_field :game_id, value: params[:game_id] %>
-      <table>
-          <tr><th>タイトル</th><td><%= f.text_field :title %></td></tr>
-          <tr><th>説明文</th><td><%= f.text_field :body %></td></tr>
-          <tr><th><%= f.submit '投稿' %></th></tr>
-      </table>
-<% end %>
+<div class="strategy-edit-container">
+  <h3 class="title">攻略情報編集画面（ユーザー）</h3>
+  
+  <%= form_with model: @strategy, class: "strategy-form" do |f| %>
+  <%= f.hidden_field :game_id, value: @game.id %>
+    <div class="strategy-form-group">
+      <label for="title">タイトル名</label>
+      <%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %>
+    </div>
+    <div class="strategy-form-group">
+      <label for="body">本文</label>
+      <%= f.text_area :body, class: "form-control", rows: 5, placeholder: "本文を入力してください" %>
+    </div>
+    <div class="form-actions">
+  <div class="button-wrapper">
+    <%= f.submit "保存", class: "btn btn-primary" %>
+  </div>
+</div>
+  <% end %>
+</div>

@@ -10,21 +10,34 @@ class Users::StrategiesController < ApplicationController
     end
     
     def new
-        @strategy = Strategy.new
+    @game = Game.find_by(id: params[:game_id])  
+    unless @game
+      redirect_to root_path, alert: "ゲームが見つかりません"
+      return
     end
+    @strategy = Strategy.new(game_id: @game.id)
+    end
+
         
     
-    def create
-      @strategy = Strategy.new(strategy_params)
-      @strategy.user_id = current_user.id
-      @strategy.save
-      redirect_to strategy_path(@strategy.id), notice: 'Strategy was successfully created.'
-    end
+ def create
+  @strategy = Strategy.new(strategy_params)
+  @strategy.user_id = current_user.id
+
+  if @strategy.save
+    redirect_to strategy_path(@strategy.id), notice: 'Strategy was successfully created.'
+  else
+    puts "💡 保存エラー: #{@strategy.errors.full_messages.join(', ')}" 
+    flash.now[:alert] = "作成に失敗しました: #{@strategy.errors.full_messages.join(', ')}"
+    render :new
+  end
+ end
+
     
     def destroy
         @strategy = Strategy.find(params[:id])
         @strategy.destroy
-        redirect_to game_path, notice: "攻略情報を削除"
+        redirect_to game_path(@strategy.game_id), notice: "攻略情報を削除"
     end
 
     

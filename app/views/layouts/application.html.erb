@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -14,7 +15,19 @@
  <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+      <div class="container">
+        <% if user_signed_in? %>
+          <div class="navbar-user">
+            <%= link_to user_path(current_user.id), class: "user-link" do %>
+              <% if current_user.image.attached? %>
+                <%= image_tag current_user.image, class: "user-icon", alt: "User Icon" %>
+              <% else %>
+                <%= image_tag 'default_user.png', class: "user-icon", alt: "Default User Icon" %>
+              <% end %>
+              <span class="user-name"><%= current_user.name %></span>
+            <% end %>
+          </div>
+        <% end %>
         <div class="collapse navbar-collapse" id=navbarNavDropdown>
             <ul class="navbar-nav ml-auto">
                 <% if user_signed_in? %>
@@ -24,12 +37,6 @@
                         ホーム
                     <% end %>
                 </li>
-                <!--<li>-->
-                    <%#= link_to comments_path, class:'nav-link text-light' do %>
-                <!--        <i class="fa-solid fa-users"></i>-->
-                <!--        コメント一覧-->
-                <!--    <%# end %>-->
-                <!--</li>-->
                 <li>
                     <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
                      <i class="fa-solid fa-book-open"></i>
@@ -43,12 +50,6 @@
                     <% end %>
                 </li>
                 <% elsif admin_signed_in? %>
-                <!--<li>-->
-                <!--    <%#= link_to admins_comments_path,  class:'nav-link text-light' do %>-->
-                <!--        <i class="fa-solid fa-sign-out-alt"></i>-->
-                <!--        コメント一覧-->
-                <!--    <#% end %>-->
-                <!--</li>-->
                 <li>
                     <%= link_to admins_users_path,  class:'nav-link text-light' do %>
                         <i class="fa-solid fa-sign-out-alt"></i>
@@ -75,12 +76,6 @@
                        ホーム
                        <% end %>
                    </li>
-                   <!--<li>-->
-                   <!--    <%#= link_to comments_path, class:'nav-link text-light' do %>-->
-                   <!--    <i class="fa-solid fa-link"></i>-->
-                   <!--    コメント一覧-->
-                   <!--    <#% end %>-->
-                   <!--</li>-->
                    <li>
                        <%= link_to  new_user_registration_path, class:'nav-link text-light' do %>
                        <i class="fa-solid fa-user-plus"></i>

@@ -1,32 +1,54 @@
-<div>
-  <% if @game.image.attached? %>
-    <%= image_tag @game.image, size: "450x150" %>
-  <% else %>
-    <%= image_tag 'no_image', size: "450x150" %>
-  <% end %>
-</div>
+<div class="container mt-5">
+  <!-- イメージセクション -->
+  <div class="text-center mb-4">
+    <% if @game.image.attached? %>
+      <%= image_tag @game.image, class: "img-fluid rounded", alt: "Game Image" %>
+    <% else %>
+      <%= image_tag 'no_image', class: "img-fluid rounded", alt: "No Image Available" %>
+    <% end %>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>タイトル名</th>
-      <td><%= @game.title %></td>
-    </tr>
-    <tr>
-      <th>概要</th>
-      <td><%= @game.body %></td>
-    </tr>
-    <tr>
-      <th>ジャンル</th>
-      <td><%= @game.tag %></td>
-    </tr>
-  </thead>
-</table>
- 
- <h4><%= link_to "攻略情報作成", new_admins_strategy_path(game_id: @game.id) %></h4>
- <% @game.strategies.each do |strategy| %>
-   <p><%= link_to strategy.title, admins_strategy_path(strategy) %></p>
- <% end %>
- 
- <%= link_to "削除", admins_game_path(@game.id), method: :delete, "data-confirm" =>"本当に削除しますか？" %>
- <%= link_to "編集", edit_admins_game_path(@game.id) %>
+  <!-- ゲーム情報テーブル -->
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">項目</th>
+        <th scope="col">内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">タイトル名</th>
+        <td><%= @game.title %></td>
+      </tr>
+      <tr>
+        <th scope="row">概要</th>
+        <td><%= @game.body %></td>
+      </tr>
+      <tr>
+        <th scope="row">ジャンル</th>
+        <td><%= @game.tag %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 攻略情報作成ボタン -->
+  <div class="text-center my-4">
+    <%= link_to "攻略情報作成", new_admins_strategy_path(game_id: @game.id), class: "btn btn-primary" %>
+  </div>
+
+  <!-- 攻略情報リスト -->
+  <h4 class="mt-5">攻略情報</h4>
+  <div class="list-group">
+    <% @game.strategies.each do |strategy| %>
+      <a href="<%= admins_strategy_path(strategy) %>" class="list-group-item list-group-item-action">
+        <%= strategy.title %>
+      </a>
+    <% end %>
+  </div>
+
+  <!-- 編集ボタン -->
+  <div class="text-center my-4">
+    <%= link_to "編集", edit_admins_game_path(@game.id), class: "btn btn-secondary" %>
+  </div>
+</div>

@@ -1,6 +1,20 @@
-トップページ（ユーザー）
-<% @game.each do |game| %>
-    <table>
-        <tr><td><%= link_to game.title, game_path(game.id) %></td></tr>
-    </table>
-<% end %>
+
+
+<h2 class="game-list-title">ゲーム攻略TOP</h2>
+
+<div class="game-grid">
+  <% @game.each do |game| %>
+    <div class="game-item">
+      <%= link_to game_path(game), class: "game-link" do %>
+        <% if game.image.attached? %>
+          <%= image_tag game.image, class: "game-image", alt: game.title %>
+        <% else %>
+          <%= image_tag 'no_image.png', class: "game-image", alt: "No Image Available" %>
+        <% end %>
+        <p class="game-title"><%= game.title %>攻略</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+

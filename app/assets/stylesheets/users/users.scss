@@ -1,3 +1,41 @@
-// Place all the styles related to the users/users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* ヘッダーのユーザー情報（アイコン＋名前） */
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+/* ユーザー情報全体をリンクに */
+.user-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+/* ユーザーアイコンのスタイル */
+.user-icon {
+  width: 40px;  /* アイコンのサイズを調整 */
+  height: 40px;
+  border-radius: 50%;  /* 丸いアイコンにする */
+  object-fit: cover;  /* 画像を適切にトリミング */
+  border: 2px solid white; /* アイコンの枠線 */
+}
+
+/* ユーザー名のスタイル */
+.user-name {
+  font-size: 16px;
+  color: white;
+}
+
+/* ホバー時のアニメーション */
+.user-link:hover .user-icon {
+  transform: scale(1.1);
+}
+.user-link:hover .user-name {
+  color: #f8d210; /* 黄色っぽい色に変更 */
+}
