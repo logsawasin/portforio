@@ -39,3 +39,135 @@
 .user-link:hover .user-name {
   color: #f8d210; /* 黄色っぽい色に変更 */
 }
+
+
+
+
+
+
+ .user-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .user-info {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 10px;
+    background: #f9f9f9;
+  }
+
+  .user-image img {
+    border-radius: 50%;
+    border: 2px solid #ccc;
+  }
+
+  .user-actions {
+    margin-top: 20px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+  }
+
+  .btn-edit {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .btn-delete {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .btn:hover {
+    opacity: 0.8;
+  }
+
+
+
+
+
+
+/* 編集フォーム全体を中央配置 */
+.edit-form-container {
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+/* タイトル中央揃え */
+.edit-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* テーブルデザインを改善 */
+.edit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+/* テーブルのヘッダーセル */
+.edit-table th {
+  text-align: left;
+  padding: 10px;
+}
+
+/* 入力フィールドのスタイル */
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-control-file {
+  padding: 5px;
+}
+
+/* ボタンのスタイル */
+.form-actions {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+  width: 120px;
+}
+
+/* 保存ボタン（青） */
+.btn-save {
+  background-color: #007bff;
+  color: white;
+}
+
+/* キャンセルボタン（グレー） */
+.btn-cancel {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* ボタンのホバー時 */
+.btn:hover {
+  opacity: 0.8;
+}

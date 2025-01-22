@@ -1,3 +1,76 @@
-// Place all the styles related to the users/games controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* 編集フォーム全体を中央配置 */
+.edit-form-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+/* タイトル中央揃え */
+.edit-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* テーブルデザインを改善 */
+.edit-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+
+/* テーブルのヘッダーセル */
+.edit-table th {
+  text-align: left;
+  padding: 10px;
+  width: 30%;
+}
+
+/* 入力フィールドのスタイル */
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-control-file {
+  padding: 5px;
+}
+
+/* ボタンのスタイル */
+.form-actions {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin: 5px;
+  text-align: center;
+  width: 120px;
+}
+
+/* 保存ボタン（青） */
+.btn-save {
+  background-color: #007bff;
+  color: white;
+}
+
+/* キャンセルボタン（グレー） */
+.btn-cancel {
+  background-color: #6c757d;
+  color: white;
+}
+
+/* ボタンのホバー時 */
+.btn:hover {
+  opacity: 0.8;
+}

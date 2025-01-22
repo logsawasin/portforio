@@ -1,13 +1,14 @@
+/* 全体のコメントエリア */
 .comment-box {
-  width: 100%;          /* 横幅を100%にして親要素にフィット */
-  max-width: 400px;     /* 横幅を少し広く（調整可能） */
-  height: 80px;         /* 縦の高さを少し広く */
-  padding: 10px;        /* 内側の余白を追加 */
-  font-size: 16px;      /* 文字のサイズを少し大きく */
-  border: 1px solid #ccc; /* 枠線を追加 */
-  border-radius: 5px;   /* 角を少し丸く */
-  box-sizing: border-box; /* padding を含めて幅を計算 */
-  resize: none;         /* ユーザーがサイズ変更できないようにする（必要なら調整） */
+  width: 100%;
+  max-width: 400px;
+  height: 80px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  resize: none;
 }
 
 /* 全体の中央寄せ */
@@ -19,7 +20,7 @@
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center; /* 全体を中央寄せ */
+  text-align: center;
 }
 
 /* タイトルと本文のスタイル */
@@ -38,16 +39,6 @@
   border: 1px solid #ddd;
 }
 
-.comment-form table {
-  margin: auto;
-}
-
-.comment-form-inner {
-  display: flex;
-  justify-content: center;
-}
-
-
 /* コメントフォーム */
 .comment-form {
   margin-top: 20px;
@@ -57,54 +48,44 @@
   justify-content: center;
 }
 
-.comment-form input[type="text"] {
+.comment-form input[type="text"],
+.comment-form input[type="submit"] {
   width: 100%;
   max-width: 400px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
   text-align: left;
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 .comment-form input[type="submit"] {
-  width: 100%;
   max-width: 150px;
-  padding: 10px;
   font-size: 16px;
   color: #fff;
   background-color: #007bff;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
   margin-top: 10px;
-  box-sizing: border-box
 }
 
 .comment-form input[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* ボタンの配置を修正 */
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.action-buttons a {
-  text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+/* ボタン共通スタイル */
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
   font-size: 14px;
+  text-decoration: none;
+  border-radius: 5px;
   text-align: center;
 }
 
 .btn-primary {
   background-color: #007bff;
   color: white;
-  border: none;
 }
 
 .btn-primary:hover {
@@ -114,7 +95,6 @@
 .btn-danger {
   background-color: #dc3545;
   color: white;
-  border: none;
 }
 
 .btn-danger:hover {
@@ -124,36 +104,60 @@
 .btn-secondary {
   background-color: #6c757d;
   color: white;
-  border: none;
 }
 
 .btn-secondary:hover {
   background-color: #565e64;
 }
 
-/* コメントリスト */
-.comment-list {
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #fff;
+/* コメント詳細全体を中央配置 */
+.comment-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
   border: 1px solid #ddd;
-  text-align: left;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  border-radius: 10px;
+  background: #f9f9f9;
+  text-align: center;
 }
 
-.comment-list th {
-  padding: 8px;
+/* タイトル中央揃え */
+.comment-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* コメント詳細のテーブル */
+.comment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background: white;
+}
+
+/* コメントのテキスト */
+.comment-text {
+  text-align: left;
+  padding: 15px;
+  font-size: 16px;
+  width: 80%;
   border-bottom: 1px solid #ddd;
 }
 
-.comment-list a {
-  color: #007bff;
-  text-decoration: none;
+/* 削除ボタン */
+.comment-actions {
+  text-align: center;
+  padding: 10px;
+  width: 20%;
 }
 
-.comment-list a:hover {
-  text-decoration: underline;
+/* 削除ボタンのデザイン */
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+}
+
+/* ボタンのホバー */
+.btn:hover {
+  opacity: 0.8;
 }

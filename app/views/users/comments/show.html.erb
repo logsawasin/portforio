@@ -1,10 +1,14 @@
-コメント詳細
+<h2 class="comment-title">コメント詳細</h2>
 
-<table>
-  <tbody>
-    <tr>
-        <th><%= @comment.comment %></th>
-        <th><%= link_to "削除", strategy_comment_path(@comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></th>
-    </tr>
-  </tbody>
-</table>
+<div class="comment-container">
+  <table class="comment-table">
+    <tbody>
+      <tr>
+        <td class="comment-text"><%= @comment.comment %></td>
+        <td class="comment-actions">
+          <%= link_to "削除", strategy_comment_path(@comment.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-delete" %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
