@@ -10,7 +10,12 @@ class Admins::StrategiesController < ApplicationController
     end
     
     def new
-        @strategy = Strategy.new
+      @game = Game.find_by(id: params[:game_id])  
+      unless @game
+        redirect_to root_path, alert: "ゲームが見つかりません"
+        return
+      end
+      @strategy = Strategy.new(game_id: @game.id)
     end
         
     

@@ -1,3 +1,65 @@
-// Place all the styles related to the admins/homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* タイトル中央配置 */
+.game-list-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* 「新規ゲーム作成」ボタンの配置 */
+.game-actions {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 新規ゲーム作成ボタンのデザイン */
+.btn-create-game {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #007bff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.btn-create-game:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* ゲーム一覧のグリッドレイアウト */
+.game-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* ゲームアイテムのスタイル */
+.game-item {
+  width: 150px; /* 画像の幅に合わせる */
+  text-align: center;
+}
+
+/* ゲーム画像のスタイル */
+.game-image {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+.game-image:hover {
+  transform: scale(1.1);
+}
+
+/* ゲームタイトルのスタイル */
+.game-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}

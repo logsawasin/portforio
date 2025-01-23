@@ -1,0 +1,225 @@
+/* 全体の中央寄せ */
+.strategy-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center; /* 全体を中央寄せ */
+}
+
+/* タイトルと本文のスタイル */
+.strategy-container h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.strategy-container p {
+  font-size: 16px;
+  color: #555;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.comment-form table {
+  margin: auto;
+}
+
+.comment-form-inner {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* コメントフォーム */
+.comment-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-form input[type="text"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: left;
+  box-sizing: border-box
+}
+
+.comment-form input[type="submit"] {
+  width: 100%;
+  max-width: 150px;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-sizing: border-box
+}
+
+.comment-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* ボタンの配置を修正 */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.action-buttons a {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #a71d2a;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #565e64;
+}
+
+/* コメントリスト */
+.comment-list {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  text-align: left;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comment-list th {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.comment-list a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.comment-list a:hover {
+  text-decoration: underline;
+}
+
+
+/* タイトルのデザイン */
+.strategy-edit-container .title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+/* フォームのスタイル */
+.strategy-form .form-group {
+  margin-bottom: 20px;
+}
+
+.strategy-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+/* 入力欄のデザイン */
+.strategy-form .form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.strategy-form .form-control:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ボタンのスタイル */
+.strategy-form .btn {
+  display: block;
+  width: auto;
+  min-width: 120px;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center; /* 中央寄せ */
+}
+
+.strategy-form .form-actions {
+  text-align: center; /* ボタンを中央寄せ */
+  margin-top: 20px;
+}
+
+.strategy-form .btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* フッターのデザイン */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 20px;
+}

@@ -1,12 +1,13 @@
 <div class="container mt-5">
   <!-- イメージセクション -->
-  <div class="text-center mb-4">
+  <div class="game-image-container text-center mb-4">
     <% if @game.image.attached? %>
-      <%= image_tag @game.image, class: "img-fluid rounded", alt: "Game Image" %>
+      <%= image_tag @game.image, class: "game-image rounded", alt: "Game Image" %>
     <% else %>
-      <%= image_tag 'no_image', class: "img-fluid rounded", alt: "No Image Available" %>
+      <%= image_tag 'no_image', class: "game-image rounded", alt: "No Image Available" %>
     <% end %>
   </div>
+
 
   <!-- ゲーム情報テーブル -->
   <table class="table table-striped">
@@ -47,8 +48,8 @@
     <% end %>
   </div>
 
-  <!-- 編集ボタン -->
+  <!-- 編集・削除ボタン -->
   <div class="text-center my-4">
-    <%= link_to "編集", edit_admins_game_path(@game.id), class: "btn btn-secondary" %>
+    <%= link_to "編集", edit_admins_game_path(@game.id), class: "btn btn-secondary mx-2" %>
+    <%= link_to "削除", admins_game_path, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger mx-2" %>
   </div>
-</div>

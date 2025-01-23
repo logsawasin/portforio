@@ -1,10 +1,19 @@
-<h4>トップページ（管理者）</h4>
-<%= link_to "新規ゲーム作成", new_admins_game_path %></br >
+<h2 class="game-list-title">ゲーム攻略TOP</h2>
+<div class="game-actions">
+  <%= link_to "新規ゲーム作成", new_admins_game_path, class: "btn btn-create-game" %>
+</div>
 
-<% @game.each do |game| %>
-   <table>
-        <tr>
-           <td><%= link_to game.title, admins_game_path(game.id) %></td>
-        </tr>
-    </table>
-<% end %>
+<div class="game-grid">
+  <% @game.each do |game| %>
+    <div class="game-item">
+      <%= link_to admins_game_path(game), class: "game-link" do %>
+        <% if game.image.attached? %>
+          <%= image_tag game.image, class: "game-image", alt: game.title %>
+        <% else %>
+          <%= image_tag 'no_image', class: "game-image", alt: "No Image Available" %>
+        <% end %>
+        <p class="game-title"><%= game.title %>攻略</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

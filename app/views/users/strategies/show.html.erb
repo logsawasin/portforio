@@ -9,27 +9,30 @@
 <div class="comment-form">
   <div class="comment-form-inner">
     <%= form_with model: @comment, url: strategy_comments_path(@strategy.id) do |f| %>
-      <table>
-        <tr>
-          <th>コメント</th>
-          <th><%= f.text_area :comment, class: "form-control comment-box", rows: 3 %></th>
-        </tr>
-        <tr>
-          <td colspan="2"><%= f.submit '保存' %></td>
-        </tr>
-      </table>
+      <% if user_signed_in? && @strategy.user_id == current_user.id %>
+        <table>
+          <tr>
+            <th>コメント</th>
+            <th><%= f.text_area :comment, class: "form-control comment-box", rows: 3 %></th>
+          </tr>
+          <tr>
+            <td colspan="2"><%= f.submit '保存' %></td>
+          </tr>
+        </table>
+      <% end %>
     <% end %>
 </div>
 
 
-  <!-- 編集・削除・戻るボタン -->
-  <% if @strategy.user_id == current_user.id %>
+    <!-- 編集・削除・戻るボタン -->
+  <% if user_signed_in? && @strategy.user_id == current_user.id %>
     <div class="action-buttons">
       <%= link_to "編集", edit_strategy_path(@strategy.id), class: "btn-primary" %>
       <%= link_to "削除", strategy_path(@strategy.id), method: :delete, class: "btn-danger", "data-confirm" => "本当に削除しますか？" %>
       <%= link_to "戻る", game_path(@game.id), class: "btn-secondary" %>
     </div>
   <% end %>
+
 
   <!-- コメントリスト -->
   <div class="comment-list">

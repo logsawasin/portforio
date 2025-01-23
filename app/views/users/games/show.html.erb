@@ -34,7 +34,9 @@
 
   <!-- 攻略情報作成ボタン -->
   <div class="text-center my-4">
-    <%= link_to "攻略情報作成", new_strategy_path(game_id: @game.id), class: "btn btn-primary" %>
+    <% if user_signed_in? %>
+      <%= link_to "攻略情報作成", new_strategy_path(game_id: @game.id), class: "btn btn-primary" %>
+    <% end %>
   </div>
 
   <!-- 攻略情報リスト -->
@@ -49,6 +51,8 @@
 
   <!-- 編集ボタン -->
   <div class="text-center my-4">
-    <%= link_to "編集", edit_game_path(@game.id), class: "btn btn-secondary" %>
+    <% if user_signed_in? %>
+      <%= link_to "編集", edit_game_path(@game.id), class: "btn btn-secondary" %>
+    <% end %>
   </div>
 </div>
