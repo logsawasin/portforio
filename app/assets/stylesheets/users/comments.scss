@@ -1,163 +1,102 @@
-/* 全体のコメントエリア */
-.comment-box {
-  width: 100%;
-  max-width: 400px;
-  height: 80px;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
+/* ============================= */
+/* コメントリストのデザイン調整 */
+/* ============================= */
+.comment-list {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 15px;
   border-radius: 5px;
-  box-sizing: border-box;
-  resize: none;
-}
-
-/* 全体の中央寄せ */
-.strategy-container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
-
-/* タイトルと本文のスタイル */
-.strategy-container h2 {
-  font-size: 20px;
-  color: #333;
-  margin-bottom: 10px;
-}
-
-.strategy-container p {
-  font-size: 16px;
-  color: #555;
-  padding: 10px;
   background-color: #fff;
-  border-radius: 5px;
   border: 1px solid #ddd;
-}
-
-/* コメントフォーム */
-.comment-form {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.comment-form input[type="text"],
-.comment-form input[type="submit"] {
-  width: 100%;
-  max-width: 400px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
   text-align: left;
-  box-sizing: border-box;
+  min-height: 200px; /* ページ遷移時の高さを一定に */
+  overflow: hidden; /* ページネーションがはみ出ないように */
+  position: relative; /* ページネーションを固定するために必要 */
 }
 
-.comment-form input[type="submit"] {
-  max-width: 150px;
+/* コメントリストの各コメント */
+.comment-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-list li {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
   font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  cursor: pointer;
-  margin-top: 10px;
 }
 
-.comment-form input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* ボタン共通スタイル */
-.btn {
-  display: inline-block;
-  padding: 8px 12px;
-  font-size: 14px;
-  text-decoration: none;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.btn-primary {
-  background-color: #007bff;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-}
-
-.btn-danger {
-  background-color: #dc3545;
-  color: white;
-}
-
-.btn-danger:hover {
-  background-color: #a71d2a;
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
-}
-
-.btn-secondary:hover {
-  background-color: #565e64;
-}
-
-/* コメント詳細全体を中央配置 */
-.comment-container {
-  width: 50%;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background: #f9f9f9;
-  text-align: center;
-}
-
-/* タイトル中央揃え */
-.comment-title {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-/* コメント詳細のテーブル */
-.comment-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 0 auto;
-  background: white;
+.comment-list li:last-child {
+  border-bottom: none;
 }
 
 /* コメントのテキスト */
-.comment-text {
-  text-align: left;
-  padding: 15px;
+.comment-detail-text {
+  padding: 20px;
   font-size: 16px;
-  width: 80%;
   border-bottom: 1px solid #ddd;
+  word-wrap: break-word; /* 長いコメント対応 */
+  white-space: pre-wrap;
 }
 
-/* 削除ボタン */
-.comment-actions {
+.comment-detail-container{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
   text-align: center;
-  padding: 10px;
-  width: 20%;
+  max-width: 800px;
+  margin: 0px auto;
 }
 
-/* 削除ボタンのデザイン */
-.btn-delete {
-  background-color: #dc3545;
+/* ============================= */
+/* ページネーションのデザイン */
+/* ============================= */
+.pagination .current {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 5px;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.pagination a, .pagination span {
+  display: inline-block;
+  padding: 6px 10px;
+  font-size: 14px;
+  min-width: 35px;
+  text-align: center;
+  text-decoration: none;
+  color: #007bff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.pagination a:hover {
+  background-color: #007bff;
   color: white;
 }
 
-/* ボタンのホバー */
-.btn:hover {
-  opacity: 0.8;
+.pagination .current {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination .first,
+.pagination .last {
+  display: none;
 }

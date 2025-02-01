@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :show, :edit, :create, :update]
     resources :users, only: [:show, :edit, :update]
     resources :strategies, only: [:index, :create, :show, :edit, :update, :new, :destroy] do 
-        resources :comments, only: [:index, :show, :create, :destroy]
+        resources :comments, only: [:show, :create, :destroy]
       end
   end
 

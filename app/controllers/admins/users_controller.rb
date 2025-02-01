@@ -1,6 +1,6 @@
-class Admins::UserrsController < ApplicationController
+class Admins::UsersController < ApplicationController
     def index
-        @user = User.all
+        @users = User.all
     end
     
     def show
@@ -14,7 +14,7 @@ class Admins::UserrsController < ApplicationController
     def update
         @user = User.find(params[:id])
         @user.update(user_params)
-        
+        redirect_to admins_user_path(params[:id])
     end
     
     private

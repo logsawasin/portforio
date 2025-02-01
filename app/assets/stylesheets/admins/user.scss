@@ -1,0 +1,53 @@
+/* ユーザーリスト全体 */
+.user-list-container {
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* タイトル */
+.user-list-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ユーザー一覧テーブル */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.user-table th, .user-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.user-table th {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.user-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* ユーザーリンク */
+.user-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.user-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}

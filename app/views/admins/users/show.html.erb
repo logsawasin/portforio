@@ -1,7 +1,18 @@
-<h4>ユーザー詳細（管理者）</h4>
-<%= @user.name %><br/>
-<%= @user.date_of_birth %><br/>
+<h2 class="user-title">ユーザー詳細(管理人)</h2>
 
-<%= link_to "編集", edit_admins_customer_path(@user.id) %>
-<%= link_to "削除", admins_customer_path(@user.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<div class="user-info">
+  <h3><%= @user.name %></h3>
+  
+  <div class="user-image">
+    <% if @user.image.attached? %>
+      <%= image_tag @user.image, size: "200x200" %>
+    <% else %>
+      <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
+  </div>
 
+  <div class="user-actions">
+    <%= link_to "編集", edit_admins_user_path(@user.id), class: "btn btn-edit" %>
+    <%= link_to "削除", admins_user_path(@user.id), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-delete" %>
+  </div>
+</div>

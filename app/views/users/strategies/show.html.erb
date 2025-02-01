@@ -6,47 +6,52 @@
   <p><%= @strategy.body %></p>
 
   <!-- コメントフォーム -->
-<div class="comment-form">
-  <div class="comment-form-inner">
-    <%= form_with model: @comment, url: strategy_comments_path(@strategy.id) do |f| %>
-      <% if user_signed_in? && @strategy.user_id == current_user.id %>
-        <table>
-          <tr>
-            <th>コメント</th>
-            <th><%= f.text_area :comment, class: "form-control comment-box", rows: 3 %></th>
-          </tr>
-          <tr>
-            <td colspan="2"><%= f.submit '保存' %></td>
-          </tr>
-        </table>
+  <div class="comment-form">
+    <div class="comment-form-inner">
+      <%= form_with model: @comment, url: strategy_comments_path(@strategy.id), local: true do |f| %>
+        <% if user_signed_in? && @strategy.user_id == current_user.id %>
+          <div class="comment-form-group">
+            <label for="comment">コメント</label>
+            <%= f.text_area :comment, class: "form-control comment-box", rows: 3 %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.submit '保存', class: "btn-save" %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-</div>
+    </div>
+  </div>
 
-
-    <!-- 編集・削除・戻るボタン -->
+  <!-- 編集・削除・戻るボタン -->
   <% if user_signed_in? && @strategy.user_id == current_user.id %>
     <div class="action-buttons">
-      <%= link_to "編集", edit_strategy_path(@strategy.id), class: "btn-primary" %>
-      <%= link_to "削除", strategy_path(@strategy.id), method: :delete, class: "btn-danger", "data-confirm" => "本当に削除しますか？" %>
-      <%= link_to "戻る", game_path(@game.id), class: "btn-secondary" %>
+      <%= link_to "編集", edit_strategy_path(@strategy.id), class: "btn btn-primary" %>
+      <%= link_to "削除", strategy_path(@strategy.id), method: :delete, class: "btn btn-danger", "data-confirm" => "本当に削除しますか？" %>
+      <% if @game.present? %>
+        <%= link_to "戻る", game_path(@game.id), class: "btn btn-secondary" %>
+      <% end %>
     </div>
   <% end %>
 
-
-  <!-- コメントリスト -->
+ <!-- コメントリスト -->
   <div class="comment-list">
-    <% if @strategy.comments.present? %>
-      <table>
-        <% @strategy.comments.each_with_index do |comment, index| %>
-          <% if comment.id.present? %>
-            <tr>
-              <th><%= index + 1 %>.</th>
-              <th><%= link_to comment.comment, strategy_comment_path(@strategy.id, comment.id) %></th>
-            </tr>
-          <% end %>
+    <% if @comments.present? %>  
+      <ul>
+        <% @comments.each_with_index do |comment, index| %>
+          <li>
+            <span class="comment-index">
+              <%= (@comments.current_page - 1) * @comments.limit_value + index + 1 %>.
+            </span>
+            <%= link_to comment.comment, strategy_comment_path(@strategy.id, comment.id), class: "comment-link" %>
+          </li>
         <% end %>
-      </table>
+      </ul>
+
+      <!-- ページネーション -->
+      <div class="pagination">
+        <%= paginate @comments, inner_window: 1, left: 0, right: 0, previous_label: "‹ Prev", next_label: "Next ›" %>
+      </div>
     <% else %>
       <p>コメントが存在しません</p>
     <% end %>

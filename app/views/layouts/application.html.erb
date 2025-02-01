@@ -7,8 +7,8 @@
   <%= csp_meta_tag %>
 
   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
               <% if current_user.image.attached? %>
                 <%= image_tag current_user.image, class: "user-icon", alt: "User Icon" %>
               <% else %>
-                <%= image_tag 'default_user.png', class: "user-icon", alt: "Default User Icon" %>
+                <%= image_tag 'no_image.webp', class: "user-icon", alt: "No Image Icon" %>
               <% end %>
               <span class="user-name"><%= current_user.name %></span>
             <% end %>

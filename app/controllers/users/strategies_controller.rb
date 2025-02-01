@@ -1,6 +1,7 @@
 class Users::StrategiesController < ApplicationController
     def show
         @strategy = Strategy.find(params[:id])
+        @comments = @strategy.comments.order(created_at: :desc).page(params[:page]).per(10)
         @game = @strategy.game
         @comment = @strategy.comments.new
     end
