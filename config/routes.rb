@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-
+  
+  get '/favicon.ico', to: ->(_) { [204, {}, []] }
+  
   root to: "users/homes#top"
   get 'top' => 'users/homes#top'
   get 'admin/comments' => 'admins/comments#index'
