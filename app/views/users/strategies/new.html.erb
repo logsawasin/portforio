@@ -1,6 +1,15 @@
 <div id="strategy">
   <div class="strategy-edit-container">
     <h3 class="title">攻略情報編集画面（ユーザー）</h3>
+    <% if @strategy.errors.any?  %>
+      <%= @strategy.errors.count %>件のエラーが発生しました。
+    <ul>
+      <% @strategy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+    
     
     <%= form_with model: @strategy, class: "strategy-form" do |f| %>
     <%= f.hidden_field :game_id, value: @game.id %>
@@ -14,7 +23,7 @@
       </div>
       <div class="form-actions">
     <div class="button-wrapper">
-      <%= f.submit "保存", class: "btn btn-primary" %>
+      <%= f.submit "作成する", class: "btn btn-primary" %>
     </div>
   </div>
     <% end %>

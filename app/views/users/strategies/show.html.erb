@@ -9,15 +9,16 @@
   <div class="comment-form">
     <div class="comment-form-inner">
       <%= form_with model: @comment, url: strategy_comments_path(@strategy.id), local: true do |f| %>
-        <% if user_signed_in? && @strategy.user_id == current_user.id %>
+        <% if user_signed_in? %>
           <div class="comment-form-group">
             <label for="comment">コメント</label>
             <%= f.text_area :comment, class: "form-control comment-box", rows: 3 %>
           </div>
-
           <div class="form-actions">
             <%= f.submit '保存', class: "btn-save" %>
           </div>
+          <% else %>
+            <p>コメントを投稿する場合は<%= link_to "ログイン", new_user_session_path %>してください。</p>
         <% end %>
       <% end %>
     </div>

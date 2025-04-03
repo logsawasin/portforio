@@ -2,6 +2,16 @@
 
 <div class="form-container">
   <%= form_with model: @game, url: admins_games_path, multipart: true do |f| %>
+    <% if @game.errors.any? %>
+      <div class="alert alert-danger">
+        <h2><%= @game.errors.count %>件のエラーが見つかりました:</h2>
+        <ul>
+          <% @game.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div class="form-group">
       <label>ゲーム名</label>
       <%= f.text_field :title, class: "form-control" %>

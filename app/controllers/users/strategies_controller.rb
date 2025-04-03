@@ -30,6 +30,7 @@ class Users::StrategiesController < ApplicationController
   else
     puts "💡 保存エラー: #{@strategy.errors.full_messages.join(', ')}" 
     flash.now[:alert] = "作成に失敗しました: #{@strategy.errors.full_messages.join(', ')}"
+    @game = Game.find_by(id: strategy_params[:game_id]) # バリデーションで失敗した場合に再度渡す
     render :new
   end
  end
