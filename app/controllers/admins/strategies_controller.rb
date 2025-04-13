@@ -21,10 +21,13 @@ class Admins::StrategiesController < ApplicationController
     
     def create
       @strategy = Strategy.new(strategy_params)
+      @strategy.user = current_user # ← ユーザーを紐づけ
+      
+    
       if @strategy.save
-        redirect_to @strategy, notice: "戦略を作成しました"
+        redirect_to @strategy, notice: "攻略を作成しました"
       else
-        puts "💡 保存エラー: #{@strategy.errors.full_messages.join(', ')}" 
+        puts "💡 保存エラー: #{@strategy.errors.full_messages.join(', ')}"
         flash.now[:alert] = "作成に失敗しました: #{@strategy.errors.full_messages.join(', ')}"
         @game = Game.find_by(id: strategy_params[:game_id]) # バリデーションで失敗した場合に再度渡す
         render :new

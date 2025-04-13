@@ -7,6 +7,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
+  
+  class ApplicationController < ActionController::Base
+  helper_method :current_admin
+
+    def current_admin
+      @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
+    end
+  end
+
     end
     private
   
