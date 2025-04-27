@@ -1,3 +1,11 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: your_user
+  password: your_password
+  host: your_host
+
 production:
   <<: *default
   database: <%= ENV['DB_DATABASE'] %>
